@@ -27,6 +27,7 @@ class BurgerBuilder extends Component {
     },
     totalPrice: 3,
     purchasable: false,
+    purchasing: false,
   };
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
@@ -66,6 +67,16 @@ class BurgerBuilder extends Component {
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
     this.updatePurchaseState(updatedIngredients);
   };
+  //triggers when you click Order btn
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
+  };
+  puchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+  puchaseContinueHandler = () => {
+    alert("You continue!");
+  };
 
   render() {
     // logic for disabling 'less' btn
@@ -78,8 +89,16 @@ class BurgerBuilder extends Component {
     }
     return (
       <Auxiliary>
-        <Modal>
-          <OrderSummary ingredients={this.state.ingredients} />
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.puchaseCancelHandler}
+        >
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            purchaseCanceled={this.puchaseCancelHandler}
+            purchaseContinued={this.puchaseContinueHandler}
+            price={this.state.totalPrice}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
@@ -87,6 +106,7 @@ class BurgerBuilder extends Component {
           ingredientRemoved={this.removeIngredientHandler}
           disabled={disabledInfo}
           purchasable={this.state.purchasable}
+          ordered={this.purchaseHandler}
           price={this.state.totalPrice}
         />
       </Auxiliary>
