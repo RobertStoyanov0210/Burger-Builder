@@ -9,7 +9,7 @@
   background-color: white;
   padding: 32px 16px;
   box-sizing: border-box;
-  transition: traform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 @media (min-width: 500px) {
@@ -23,4 +23,7 @@
 
 .Close {
   transform: translateX(-100%);
+}
+.Logo {
+  margin-bottom: 32px;
 }
