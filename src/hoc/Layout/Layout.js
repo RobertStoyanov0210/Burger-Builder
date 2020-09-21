@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Auxiliary from "../../hoc/Auxiliary";
+
+import Auxiliary from "../Auxiliary/Auxiliary";
 import classes from "./Layout.css";
-import Toolbar from "../Navigation/Toolbar/Toolbar";
-import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
+import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
+import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
 // CONVERTED TO CLASS because this is where we have connection with Toolbar and SideDrawer and we can make a method which listens to both.
 class Layout extends Component {
