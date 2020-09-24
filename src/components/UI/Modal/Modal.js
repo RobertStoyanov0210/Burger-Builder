@@ -5,6 +5,9 @@ import Backdrop from "../Backdrop/Backdrop";
 
 // It is a class so it doen't unnecessaryly update order summary
 class Modal extends Component {
+  state = {
+    posts: [],
+  }
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.show !== this.props.show;
   }
