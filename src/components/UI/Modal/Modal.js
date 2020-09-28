@@ -1,22 +1,21 @@
 import React, { Component } from "react";
+
 import classes from "./Modal.css";
 import Auxiliary from "../../../hoc/Auxiliary/Auxiliary";
 import Backdrop from "../Backdrop/Backdrop";
 
-// It is a class so it doen't unnecessaryly update order summary
 class Modal extends Component {
-  state = {
-    posts: [],
-  };
   shouldComponentUpdate(nextProps, nextState) {
     return (
       nextProps.show !== this.props.show ||
       nextProps.children !== this.props.children
     );
   }
-  // componentWillUpdate() {
-  //   console.log("[Modal] will update!");
-  // }
+
+  componentWillUpdate() {
+    console.log("[Modal] WillUpdate");
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -34,4 +33,5 @@ class Modal extends Component {
     );
   }
 }
+
 export default Modal;
